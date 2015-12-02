@@ -8,9 +8,21 @@ export default Ember.Controller.extend({
     enableSend: Ember.computed.and('isValidEmail', 'isMessageLongEnough'),
     actions: {
         sendMessage: function() {
-            alert('From: ' + this.get('emailAddress') + '\nMessage: ' + this.get('contactMessage'));
-            this.set('emailAddress', '');
-            this.set('contactMessage', '');
+            var _that = this;
+            var email = this.get('emailAddress');
+            var text = this.get('contactMessage');
+
+            var contact = this.store.createRecord('contact', {
+                email: email,
+                text: text
+
+            });
+            contact.save().then(function(response) {
+                _that.set('responseMessage', "Thank you! We've have received your message! Yout message id is:" + response.get('id'));
+                _that.set('emailAddress', '');
+                _that.set('contactMessage', '');
+                console.log(_that.responseMessage);
+            });
         }
     }
 });

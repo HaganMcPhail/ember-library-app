@@ -1,0 +1,25 @@
+<!-- app/templates/admin/invitations.hbs -->
+
+<h1>Contacts</h1>
+
+<table class="table table-bordered table-striped">
+    <thead>
+      <tr>
+          <th>ID</th>
+          <th>E-mail</th>
+          <th>Text</th>
+          <th></th>
+      </tr>
+    </thead>
+    <tbody>
+    {{#each model as |contact|}}
+        <tr>
+            <th>{{contact.id}}</th>
+            <td>{{contact.email}}</td>
+            <td>{{contact.text}}</td>
+            <td class="text-center"><button class="btn btn-danger btn-xs" {{action 'deleteContact' contact}}>Delete</button></td>
+        </tr>
+    {{/each}}
+
+    </tbody>
+</table>

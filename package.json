@@ -1,5 +1,5 @@
 {
-  "name": "library-app",
+  "name": "hm-ember-library-app",
   "version": "0.0.0",
   "description": "Small description for library-app goes here",
   "private": true,
@@ -37,6 +37,7 @@
     "ember-cli-uglify": "^1.2.0",
     "ember-data": "2.0",
     "ember-disable-proxy-controllers": "^1.0.1",
-    "ember-export-application-global": "^1.0.4"
+    "ember-export-application-global": "^1.0.4",
+    "emberfire": "1.6.2"
   }
 }
